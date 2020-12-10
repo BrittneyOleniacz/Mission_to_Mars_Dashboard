@@ -6,13 +6,13 @@ app = Flask(__name__)
 
 conn = "mongodb://localhost:27017"
 client = pymongo.MongoClient(conn) 
-db = client.team_db
+db = client.mars_db
 
 @app.route('/')
 def index():
-    teams = list(db.team.find())
+    data = list(db.mars.find())
     print(teams)
-    return render_template("index.html", teams=teams)
+    return render_template("index.html", data=data)
 
 @app.route('/scrape')
 def scrape():
