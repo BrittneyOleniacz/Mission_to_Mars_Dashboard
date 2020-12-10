@@ -9,16 +9,16 @@
         <br>
         <br>
         <br>
-        <p>{{ teams.news_title }}</p>
-        <p>{{ teams.news_teaser }}</p>
-        <p>{{ teams.featured_image_url }}</p>
-        {{ teams.mars_fact | safe }}
-        <p>{{ teams.hemisphere_image_urls }}</p>
+        <p>{{ data.news_title }}</p>
+        <p>{{ data.news_teaser }}</p>
+        <p>{{ data.featured_image_url }}</p>
+        {{ data.mars_fact | safe }}
+        <p>{{ data.hemisphere_image_urls }}</p>
         <br>
         <br>
         <br>
-        {% for item in teams.hemisphere_image_urls %}
-            <p>{{item.title}}</p>
+        {% for item in data.hemisphere_image_urls %}
+            <p>{{data.img_title}}</p>
             <img src="{{item.img_url}}">
         {% endfor %}
     </body>
