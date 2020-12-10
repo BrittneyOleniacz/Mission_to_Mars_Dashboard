@@ -1,24 +1,23 @@
-from flask import Flask, render_template
-from scrape_mars import scrape as myscrape
-
+from flask import Flask, render_template, jsonify, redirect
+from scrape_mars import myScrape
 import pymongo
+
 app = Flask(__name__)
 
-conn = 
-client = 
-db = client.mars_db
+conn = "mongodb://localhost:27017"
+client = pymongo.MongoClient(conn) 
+db = client.team_db
 
-#scrape route
 @app.route('/')
 def index():
-    data = list(db.data.find())[0]
-    data = list(db.data.find())
-return render_template('index.html', data = data)
+    teams = list(db.team.find())
+    print(teams)
+    return render_template("index.html", teams=teams)
 
 @app.route('/scrape')
 def scrape():
-    db.data.insert(data())
+    db.mars.insert_many([myScrape()])
     return redirect("/")
 
-if__name__=="__main__"
-    app.run(__debug__)
+if __name__ == "__main__":
+    app.run(debug=True)

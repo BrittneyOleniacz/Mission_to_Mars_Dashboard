@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <h1>Mission to Mars</h1>
+    </head>
+
+    <body>
+        <a href='/scrape'> Update </a>
+        <br>
+        <br>
+        <br>
+        <p>{{ teams.news_title }}</p>
+        <p>{{ teams.news_teaser }}</p>
+        <p>{{ teams.featured_image_url }}</p>
+        {{ teams.mars_fact | safe }}
+        <p>{{ teams.hemisphere_image_urls }}</p>
+        <br>
+        <br>
+        <br>
+        {% for item in teams.hemisphere_image_urls %}
+            <p>{{item.title}}</p>
+            <img src="{{item.img_url}}">
+        {% endfor %}
+    </body>
+
+
+</html>
