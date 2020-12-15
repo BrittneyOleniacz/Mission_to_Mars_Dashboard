@@ -1,6 +1,7 @@
 from flask import Flask, render_template, jsonify, redirect
 from scrape_mars import myScrape
 import pymongo
+import sys
 
 app = Flask(__name__)
 
@@ -11,8 +12,8 @@ db = client.mars_db
 @app.route('/')
 def index():
     data = list(db.mars.find())
-    print(teams)
-    return render_template("index.html", data=data)
+    print("look at me", data, file=sys.stdout)
+    return render_template("index.html", data=data[0])
 
 @app.route('/scrape')
 def scrape():

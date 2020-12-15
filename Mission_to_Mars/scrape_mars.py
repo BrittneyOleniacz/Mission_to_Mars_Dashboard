@@ -26,7 +26,7 @@ def myScrape():
     url = 'https://space-facts.com/mars/'
     browser.visit(url)
     time.sleep(1)
-    mars_facts = pd.read_html(url)[0].to_html
+    mars_facts = pd.read_html(url)[0].to_html()
 
     url = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
     browser.visit(url)
@@ -50,7 +50,7 @@ def myScrape():
         'news_title' : news_title,
         'news_teaser': news_teaser,
         'featured': featured_image_url,
-        'Mars_facts': mars_facts,
+        'mars_facts': mars_facts,
         'hemisphere_image_urls': hemisphere_image_urls}
 
     browser.quit()
