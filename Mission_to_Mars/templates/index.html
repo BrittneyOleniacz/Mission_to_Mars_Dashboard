@@ -26,6 +26,8 @@
                 <div class="col px-md-5"><div class="p-3 bg-white"><h2>Mars Facts</h2> {{ data.mars_facts | safe }}</div></div>
             </div>
             <br>
+            <br>
+            <div class="text-center"><h3>Mars Hemispheres</h3></div>
             <{% for item in data.hemisphere_image_urls %}
                 <p>{{data.img_title}}</p>
                 <img src="{{item.img_url}}">
