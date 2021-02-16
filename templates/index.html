@@ -28,7 +28,7 @@
             <br>
             <br>
             <div class="text-center"><h3>Mars Hemispheres</h3></div>
-            <{% for item in data.hemisphere_image_urls %}
+            {% for item in data.hemisphere_image_urls %}
                 <p>{{data.img_title}}</p>
                 <img src="{{item.img_url}}">
             {% endfor %}</div>
