@@ -20,14 +20,14 @@ def myScrape():
 
     url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
     browser.visit(url)
-    time.sleep(1)
     featured_image_url = 'https://www.jpl.nasa.gov' + browser.find_by_xpath('//article[@class="carousel_item"]')[0]['style'].split('"')[1]
 
     url = 'https://space-facts.com/mars/'
-    browser.visit(url)
+    mars_info = pd.read_html(url)
     time.sleep(1)
-    mars_facts = pd.read_html(url)[0].to_html()
-
+    table_info = mars_info[0]
+    mars_facts["table_info"] = table_info.to_html(header=False, index=False, justify="left", classes="table-striped")
+    
     url = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
     browser.visit(url)
     time.sleep(1)

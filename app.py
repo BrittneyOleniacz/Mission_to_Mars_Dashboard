@@ -12,7 +12,7 @@ db = client.mars_db
 @app.route('/')
 def index():
     data = list(db.mars.find())
-    print("look at me", data[0], file=sys.stdout)
+    print(data[0], file=sys.stdout)
     return render_template("index.html", data=data[0])
 
 @app.route('/scrape')
